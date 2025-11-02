@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero Crash - Smart Road Safety App</title>
+  <style>
+    /* Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f1115;
+      color: #e5e5e5;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+      url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 4em 1em;
+    }
+    header h1 { font-size: 3em; color: #4ade80; }
+    header p { font-size: 1.2em; }
+
+    /* Navbar */
+    nav {
+      background-color: #16a34a;
+      text-align: center;
+      padding: 0.8em;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffeb3b; }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 3em 1em;
+      background: #1a1f25;
+      border-radius: 10px;
+      margin: 2em auto;
+      max-width: 900px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    }
+    .hero h2 { color: #4ade80; }
+    .hero p { margin-top: 1em; font-size: 1.1em; color: #ccc; }
+
+    /* Button */
+    button {
+      background-color: #22c55e;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 30px;
+      margin-top: 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    button:hover { background-color: #16a34a; transform: scale(1.05); }
+
+    /* Features */
+    #features { padding: 3em 1em; max-width: 1000px; margin: auto; }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+      margin-top: 2em;
+    }
+    .feature {
+      background: #1e293b;
+      border-radius: 15px;
+      padding: 1.5em;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s ease;
+    }
+    .feature:hover { transform: translateY(-5px); }
+    .feature h3 { color: #4ade80; }
+
+    /* How It Works */
+    #how {
+      background: #111827;
+      text-align: center;
+      padding: 4em 1em;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5em;
+      margin-top: 2em;
+      max-width: 1000px;
+      margin-inline: auto;
+    }
+    .step {
+      background: #1f2937;
+      border-radius: 12px;
+      padding: 1.5em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    .step h4 { color: #4ade80; margin-bottom: 0.5em; }
+
+    /* Mission */
+    #mission {
+      text-align: center;
+      padding: 3em 1em;
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: white;
+    }
+    #mission h2 { margin-bottom: 1em; }
+
+    /* Download */
+    #download {
+      text-align: center;
+      padding: 3em 1em;
+      background: linear-gradient(to right, #22c55e, #15803d);
+      color: white;
+    }
+
+    /* Contact */
+    #contact {
+      text-align: center;
+      padding: 3em 1em;
+      background-color: #111827;
+    }
+    #contact a { color: #4ade80; text-decoration: none; }
+
+    /* Join Us */
+    #join {
+      background: #1a1f25;
+      text-align: center;
+      padding: 3em 1em;
+      margin-top: 3em;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background-color: #16a34a;
+      color: white;
+      padding: 1em;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Zero Crash</h1>
+    <p>Smart Road Safety App — Report Hazards, Prevent Accidents 🚗</p>
+  </header>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#how">How It Works</a>
+    <a href="#mission">Mission</a>
+    <a href="#download">Download</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="home" class="hero">
+    <h2>Welcome to Zero Crash</h2>
+    <p>Zero Crash empowers citizens to report road hazards such as potholes, crashes, and signal failures in seconds.  
+    Our vision is to make every journey safer — through technology and community action.</p>
+    <button>Download App</button>
+  </section>
+
+  <section id="features">
+    <h2 style="text-align:center; color:#4ade80;">Powerful Features</h2>
+    <div class="features">
+      <div class="feature"><h3>📸 Quick Hazard Reporting</h3><p>Take a photo and upload instantly with one tap.</p></div>
+      <div class="feature"><h3>📍 Smart GPS Tracking</h3><p>Detects your location precisely for accurate reports.</p></div>
+      <div class="feature"><h3>⚡ Real-Time Notifications</h3><p>Get alerts for nearby road issues or accident zones.</p></div>
+      <div class="feature"><h3>🏙 Government Dashboard</h3><p>Authorities can manage reports efficiently and act faster.</p></div>
+      <div class="feature"><h3>💬 Community Feedback</h3><p>Users can rate and verify issues to help prioritize work.</p></div>
+      <div class="feature"><h3>🔒 Secure & Private</h3><p>Your data and location are protected using top-grade security.</p></div>
+    </div>
+  </section>
+
+  <section id="how">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step"><h4>1️⃣ Capture</h4><p>Open the app and take a photo of a pothole or accident.</p></div>
+      <div class="step"><h4>2️⃣ Detect</h4><p>The app automatically gets your GPS location.</p></div>
+      <div class="step"><h4>3️⃣ Report</h4><p>Submit the issue — it’s instantly visible to authorities.</p></div>
+      <div class="step"><h4>4️⃣ Track</h4><p>Get live updates until the issue is resolved.</p></div>
+    </div>
+  </section>
+
+  <section id="mission">
+    <h2>Our Mission</h2>
+    <p>At <strong>Zero Crash</strong>, our goal is to reduce road accidents by 50% in the next decade through technology, awareness, and collaboration with government agencies.</p>
+  </section>
+
+  <section id="download">
+    <h2>Download the App</h2>
+    <p>Coming soon on Google Play Store! Stay tuned for the launch.</p>
+    <button>Coming Soon</button>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📧 Email: <a href="mailto:support@zerocrash.com">support@zerocrash.com</a></p>
+    <p>📍 Address: SafeRoad Labs, Pune, India</p>
+  </section>
+
+  <section id="join">
+    <h2>Join the Zero Crash Movement 🚦</h2>
+    <p>Be a part of the safer roads revolution — together, we can make a difference.</p>
+    <button>Join Now</button>
+  </section>
+
+  <footer>
+    <p>© 2025 Zero Crash | Designed with ❤️ by Team Innovators</p>
+  </footer>
+
+</body>
+</html>
