@@ -1,229 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zero Crash - Smart Road Safety App</title>
-  <style>
-    /* Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #0f1115;
-      color: #e5e5e5;
-    }
-
-    /* Header */
-    header {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-      url('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      color: white;
-      text-align: center;
-      padding: 4em 1em;
-    }
-    header h1 { font-size: 3em; color: #4ade80; }
-    header p { font-size: 1.2em; }
-
-    /* Navbar */
-    nav {
-      background-color: #16a34a;
-      text-align: center;
-      padding: 0.8em;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-    nav a:hover { color: #ffeb3b; }
-
-    /* Hero Section */
-    .hero {
-      text-align: center;
-      padding: 3em 1em;
-      background: #1a1f25;
-      border-radius: 10px;
-      margin: 2em auto;
-      max-width: 900px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-    }
-    .hero h2 { color: #4ade80; }
-    .hero p { margin-top: 1em; font-size: 1.1em; color: #ccc; }
-
-    /* Button */
-    button {
-      background-color: #22c55e;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 30px;
-      margin-top: 20px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    button:hover { background-color: #16a34a; transform: scale(1.05); }
-
-    /* Features */
-    #features { padding: 3em 1em; max-width: 1000px; margin: auto; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5em;
-      margin-top: 2em;
-    }
-    .feature {
-      background: #1e293b;
-      border-radius: 15px;
-      padding: 1.5em;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
-    .feature:hover { transform: translateY(-5px); }
-    .feature h3 { color: #4ade80; }
-
-    /* How It Works */
-    #how {
-      background: #111827;
-      text-align: center;
-      padding: 4em 1em;
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5em;
-      margin-top: 2em;
-      max-width: 1000px;
-      margin-inline: auto;
-    }
-    .step {
-      background: #1f2937;
-      border-radius: 12px;
-      padding: 1.5em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-    }
-    .step h4 { color: #4ade80; margin-bottom: 0.5em; }
-
-    /* Mission */
-    #mission {
-      text-align: center;
-      padding: 3em 1em;
-      background: linear-gradient(135deg, #22c55e, #15803d);
-      color: white;
-    }
-    #mission h2 { margin-bottom: 1em; }
-
-    /* Download */
-    #download {
-      text-align: center;
-      padding: 3em 1em;
-      background: linear-gradient(to right, #22c55e, #15803d);
-      color: white;
-    }
-
-    /* Contact */
-    #contact {
-      text-align: center;
-      padding: 3em 1em;
-      background-color: #111827;
-    }
-    #contact a { color: #4ade80; text-decoration: none; }
-
-    /* Join Us */
-    #join {
-      background: #1a1f25;
-      text-align: center;
-      padding: 3em 1em;
-      margin-top: 3em;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      background-color: #16a34a;
-      color: white;
-      padding: 1em;
-      font-size: 0.9em;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Zero Crash — Report Hazard</title>
+<style>
+  :root{
+    --green:#22c55e; --dark:#0f1115; --card:#111827; --muted:#9ca3af;
+    font-family: Inter, system-ui, Arial, sans-serif;
+  }
+  body{margin:0;background:linear-gradient(180deg,#07101a 0%, #0f1115 100%);color:#e6eef0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;}
+  .app{width:100%;max-width:900px;background:linear-gradient(180deg,#0b1216, #0f171c);border-radius:14px;box-shadow:0 10px 30px rgba(2,6,23,.6);overflow:hidden;}
+  header{padding:24px 28px;border-bottom:1px solid rgba(255,255,255,.03);display:flex;align-items:center;gap:16px}
+  header h1{font-size:20px;margin:0;color:var(--green)}
+  .content{padding:28px}
+  .steps{display:flex;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+  .step-pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.03);color:var(--muted);font-weight:600}
+  .step-pill.active{background:linear-gradient(90deg,var(--green),#16a34a);color:#07101a}
+  .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+  .controls{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+  button{background:var(--green);color:#07101a;border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+  button.ghost{background:transparent;color:var(--green);border:1px solid rgba(34,197,94,.15)}
+  input[type="text"], textarea{width:100%;padding:10px;border-radius:8px;border:none;background:#0b1220;color:#e6eef0}
+  label{display:block;margin-bottom:8px;color:var(--muted);font-size:14px}
+  .preview{margin-top:12px;border-radius:8px;overflow:hidden;max-width:100%}
+  .meta {margin-top:8px;color:var(--muted);font-size:14px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:700px){.row{grid-template-columns:1fr}.header{padding:12px}.content{padding:18px}}
+  footer{padding:14px 20px;border-top:1px solid rgba(255,255,255,.03);display:flex;justify-content:space-between;align-items:center}
+  .badge{background:rgba(255,255,255,.03);padding:8px 10px;border-radius:8px;color:var(--muted)}
+  .file-drop{border:2px dashed rgba(255,255,255,.04);padding:14px;border-radius:8px;text-align:center;color:var(--muted)}
+  .danger{background:#ff6961;color:#fff}
+  small{color:var(--muted)}
+</style>
 </head>
 <body>
+  <div class="app" role="application" aria-label="Zero Crash report app">
+    <header><h1>Zero Crash</h1><div style="margin-left:auto" class="badge">Step-by-step web reporter</div></header>
 
-  <header>
-    <h1>Zero Crash</h1>
-    <p>Smart Road Safety App — Report Hazards, Prevent Accidents 🚗</p>
-  </header>
+    <div class="content">
+      <div class="steps" id="stepPills">
+        <div class="step-pill active" data-i="0">1. Photo</div>
+        <div class="step-pill" data-i="1">2. Location</div>
+        <div class="step-pill" data-i="2">3. Details</div>
+        <div class="step-pill" data-i="3">4. Review</div>
+      </div>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#how">How It Works</a>
-    <a href="#mission">Mission</a>
-    <a href="#download">Download</a>
-    <a href="#contact">Contact</a>
-  </nav>
+      <!-- step container -->
+      <div id="stepsArea">
+        <!-- Step 0: Photo -->
+        <div class="card" data-step="0">
+          <label>Upload a photo of the hazard</label>
+          <div class="file-drop" id="dropZone">
+            <input id="fileInput" type="file" accept="image/*" style="display:none" />
+            <div id="dropText">Click to choose or drag & drop an image (jpeg/png)</div>
+            <div class="preview" id="imgPreview" style="display:none;">
+              <img id="previewImg" src="" alt="preview" style="width:100%;display:block" />
+            </div>
+          </div>
+          <div class="meta">Tip: Use the phone camera to take a clear photo of the pothole or hazard.</div>
 
-  <section id="home" class="hero">
-    <h2>Welcome to Zero Crash</h2>
-    <p>Zero Crash empowers citizens to report road hazards such as potholes, crashes, and signal failures in seconds.  
-    Our vision is to make every journey safer — through technology and community action.</p>
-    <button>Download App</button>
-  </section>
+          <div class="controls">
+            <button id="next0">Next — Location</button>
+            <button class="ghost" id="clearImage">Clear</button>
+          </div>
+        </div>
 
-  <section id="features">
-    <h2 style="text-align:center; color:#4ade80;">Powerful Features</h2>
-    <div class="features">
-      <div class="feature"><h3>📸 Quick Hazard Reporting</h3><p>Take a photo and upload instantly with one tap.</p></div>
-      <div class="feature"><h3>📍 Smart GPS Tracking</h3><p>Detects your location precisely for accurate reports.</p></div>
-      <div class="feature"><h3>⚡ Real-Time Notifications</h3><p>Get alerts for nearby road issues or accident zones.</p></div>
-      <div class="feature"><h3>🏙 Government Dashboard</h3><p>Authorities can manage reports efficiently and act faster.</p></div>
-      <div class="feature"><h3>💬 Community Feedback</h3><p>Users can rate and verify issues to help prioritize work.</p></div>
-      <div class="feature"><h3>🔒 Secure & Private</h3><p>Your data and location are protected using top-grade security.</p></div>
+        <!-- Step 1: Location -->
+        <div class="card" data-step="1" style="display:none;">
+          <label>Get your current location</label>
+          <div>
+            <button id="getLocation">Get GPS Location</button>
+            <button class="ghost" id="manualLocation">Enter manually</button>
+          </div>
+          <div class="meta" id="locationMeta">No location yet</div>
+
+          <div style="margin-top:12px">
+            <label>Map link (preview)</label>
+            <div id="mapLink" style="color:var(--green)"></div>
+          </div>
+
+          <div class="controls">
+            <button class="ghost" id="back1">Back</button>
+            <button id="next1">Next — Details</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Details -->
+        <div class="card" data-step="2" style="display:none;">
+          <label for="reporterName">Your name (optional)</label>
+          <input id="reporterName" type="text" placeholder="e.g. Rahul Kumar" />
+
+          <label for="reporterPhone" style="margin-top:12px">Phone / contact (optional)</label>
+          <input id="reporterPhone" type="text" placeholder="e.g. +91 98xxxxxxxx" />
+
+          <label style="margin-top:12px">Describe the issue</label>
+          <textarea id="description" rows="4" placeholder="Example: Large pothole near the bus stop, deep 10cm, causing bikes to swerve."></textarea>
+
+          <div class="controls">
+            <button class="ghost" id="back2">Back</button>
+            <button id="next2">Preview & Submit</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Review -->
+        <div class="card" data-step="3" style="display:none;">
+          <h3>Review your report</h3>
+          <div id="reviewArea" style="margin-top:12px"></div>
+
+          <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap">
+            <button id="downloadJson">Download Report (JSON)</button>
+            <button id="copyJson" class="ghost">Copy JSON</button>
+            <button id="submitFake" class="ghost">Send Test (opens email)</button>
+            <button id="resetAll" class="danger">Reset</button>
+          </div>
+          <div class="meta" style="margin-top:10px"><small>To save reports online, connect to Firebase or your server (instructions below).</small></div>
+        </div>
+      </div>
+
     </div>
-  </section>
 
-  <section id="how">
-    <h2>How It Works</h2>
-    <div class="steps">
-      <div class="step"><h4>1️⃣ Capture</h4><p>Open the app and take a photo of a pothole or accident.</p></div>
-      <div class="step"><h4>2️⃣ Detect</h4><p>The app automatically gets your GPS location.</p></div>
-      <div class="step"><h4>3️⃣ Report</h4><p>Submit the issue — it’s instantly visible to authorities.</p></div>
-      <div class="step"><h4>4️⃣ Track</h4><p>Get live updates until the issue is resolved.</p></div>
+    <footer>
+      <div><small>Zero Crash — Report Hazards</small></div>
+      <div><small>Made for quick reporting • Works in browser</small></div>
+    </footer>
+  </div>
+
+<script>
+/* Simple multi-step form + geolocation + image preview + export */
+let step = 0;
+const steps = document.querySelectorAll('[data-step]');
+const pills = document.querySelectorAll('.step-pill');
+const showStep = i => {
+  step = i;
+  steps.forEach(s => s.style.display = s.dataset.step==i ? 'block' : 'none');
+  pills.forEach(p=> p.classList.toggle('active', Number(p.dataset.i) === i));
+};
+showStep(0);
+
+/* Image upload + drag/drop */
+const drop = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+const imgPreview = document.getElementById('imgPreview');
+const previewImg = document.getElementById('previewImg');
+let currentFile = null;
+
+drop.addEventListener('click', ()=> fileInput.click());
+fileInput.addEventListener('change', e => handleFile(e.target.files[0]));
+drop.addEventListener('dragover', e=>{e.preventDefault(); drop.style.borderColor='var(--green)';});
+drop.addEventListener('dragleave', ()=> drop.style.borderColor='rgba(255,255,255,.04)');
+drop.addEventListener('drop', e=>{ e.preventDefault(); drop.style.borderColor='rgba(255,255,255,.04)'; const f = e.dataTransfer.files[0]; handleFile(f); });
+
+function handleFile(file) {
+  if(!file) return;
+  if(!file.type.startsWith('image/')) { alert('Please upload an image.'); return; }
+  currentFile = file;
+  const reader = new FileReader();
+  reader.onload = ()=> {
+    previewImg.src = reader.result;
+    imgPreview.style.display='block';
+    document.getElementById('dropText').style.display='none';
+  };
+  reader.readAsDataURL(file);
+}
+
+document.getElementById('clearImage').addEventListener('click', ()=> {
+  currentFile = null;
+  imgPreview.style.display='none';
+  previewImg.src = '';
+  document.getElementById('dropText').style.display='block';
+});
+
+/* Step navigation buttons */
+document.getElementById('next0').addEventListener('click', ()=> {
+  if(!currentFile){ if(!confirm('No image uploaded. Continue without image?')) return; }
+  showStep(1);
+});
+
+document.getElementById('back1').addEventListener('click', ()=> showStep(0));
+document.getElementById('next1').addEventListener('click', ()=> showStep(2));
+document.getElementById('back2').addEventListener('click', ()=> showStep(1));
+document.getElementById('next2').addEventListener('click', ()=> {
+  populateReview();
+  showStep(3);
+});
+
+/* Geolocation */
+let locationData = null;
+const locMeta = document.getElementById('locationMeta');
+const mapLinkDiv = document.getElementById('mapLink');
+
+document.getElementById('getLocation').addEventListener('click', ()=> {
+  if(!navigator.geolocation) return alert('Geolocation not supported in this browser.');
+  locMeta.textContent = 'Getting location…';
+  navigator.geolocation.getCurrentPosition(pos => {
+    locationData = { lat: pos.coords.latitude, lon: pos.coords.longitude, accuracy: pos.coords.accuracy };
+    locMeta.textContent = `Lat: ${locationData.lat.toFixed(5)}, Lon: ${locationData.lon.toFixed(5)} (accuracy ${Math.round(locationData.accuracy)}m)`;
+    mapLinkDiv.innerHTML = `<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${locationData.lat},${locationData.lon}">Open in Google Maps</a>`;
+  }, err => {
+    locMeta.textContent = 'Unable to get location: ' + err.message;
+  }, { enableHighAccuracy:true, timeout:10000 });
+});
+
+document.getElementById('manualLocation').addEventListener('click', ()=> {
+  const lat = prompt('Enter latitude (e.g. 18.52043)');
+  if(!lat) return;
+  const lon = prompt('Enter longitude (e.g. 73.85674)');
+  locationData = { lat: Number(lat), lon: Number(lon), accuracy: null };
+  locMeta.textContent = `Lat: ${locationData.lat}, Lon: ${locationData.lon}`;
+  mapLinkDiv.innerHTML = `<a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${locationData.lat},${locationData.lon}">Open in Google Maps</a>`;
+});
+
+/* Review and export */
+function populateReview() {
+  const name = document.getElementById('reporterName').value || 'Anonymous';
+  const phone = document.getElementById('reporterPhone').value || '';
+  const desc = document.getElementById('description').value || '';
+  const preview = previewImg.src || null;
+
+  const report = {
+    app: 'Zero Crash',
+    timestamp: new Date().toISOString(),
+    reporter: { name, phone },
+    description: desc,
+    location: locationData,
+    imageDataURI: preview // data URL (base64)
+  };
+  window.currentReport = report; // expose for actions
+
+  const area = document.getElementById('reviewArea');
+  area.innerHTML = `
+    <div style="display:grid;gap:8px">
+      <div><strong>Name:</strong> ${escapeHtml(name)}</div>
+      <div><strong>Phone:</strong> ${escapeHtml(phone)}</div>
+      <div><strong>Description:</strong> ${escapeHtml(desc)}</div>
+      <div><strong>Location:</strong> ${locationData ? (locationData.lat.toFixed(5)+', '+locationData.lon.toFixed(5)) : 'Not provided'}</div>
+      ${ preview ? `<div style="max-width:360px"><img src="${preview}" style="width:100%;border-radius:8px;margin-top:10px"></div>` : '' }
     </div>
-  </section>
+  `;
+}
 
-  <section id="mission">
-    <h2>Our Mission</h2>
-    <p>At <strong>Zero Crash</strong>, our goal is to reduce road accidents by 50% in the next decade through technology, awareness, and collaboration with government agencies.</p>
-  </section>
+function escapeHtml(s){ return (s+'').replace(/[&<>"']/g, c=>({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])); }
 
-  <section id="download">
-    <h2>Download the App</h2>
-    <p>Coming soon on Google Play Store! Stay tuned for the launch.</p>
-    <button>Coming Soon</button>
-  </section>
+/* Download JSON */
+document.getElementById('downloadJson').addEventListener('click', ()=> {
+  if(!window.currentReport) populateReview();
+  const blob = new Blob([JSON.stringify(window.currentReport, null, 2)], {type:'application/json'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `zerocrash-report-${Date.now()}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+});
 
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>📧 Email: <a href="mailto:support@zerocrash.com">support@zerocrash.com</a></p>
-    <p>📍 Address: SafeRoad Labs, Pune, India</p>
-  </section>
+/* Copy JSON */
+document.getElementById('copyJson').addEventListener('click', async ()=> {
+  if(!window.currentReport) populateReview();
+  try{
+    await navigator.clipboard.writeText(JSON.stringify(window.currentReport, null, 2));
+    alert('JSON copied to clipboard');
+  }catch(e){ alert('Unable to copy: '+e.message); }
+});
 
-  <section id="join">
-    <h2>Join the Zero Crash Movement 🚦</h2>
-    <p>Be a part of the safer roads revolution — together, we can make a difference.</p>
-    <button>Join Now</button>
-  </section>
+/* Open email with report summary (image won't attach) */
+document.getElementById('submitFake').addEventListener('click', ()=> {
+  if(!window.currentReport) populateReview();
+  const subject = encodeURIComponent('Zero Crash report');
+  const body = encodeURIComponent('Report (summary):\n' + JSON.stringify(window.currentReport, null, 2));
+  window.location.href = `mailto:support@zerocrash.com?subject=${subject}&body=${body}`;
+});
 
-  <footer>
-    <p>© 2025 Zero Crash | Designed with ❤️ by Team Innovators</p>
-  </footer>
+/* Reset */
+document.getElementById('resetAll').addEventListener('click', ()=> {
+  if(!confirm('Clear report and start over?')) return;
+  currentFile=null; previewImg.src=''; imgPreview.style.display='none'; document.getElementById('dropText').style.display='block';
+  locationData=null; document.getElementById('locationMeta').textContent='No location yet'; mapLinkDiv.innerHTML='';
+  document.getElementById('reporterName').value=''; document.getElementById('reporterPhone').value=''; document.getElementById('description').value='';
+  showStep(0);
+});
 
+/* small helper: show file name in pill click to navigate */
+document.querySelectorAll('.step-pill').forEach(p => p.addEventListener('click', ()=> showStep(Number(p.dataset.i))));
+</script>
 </body>
 </html>
